@@ -1,4 +1,4 @@
-# Sensor Actuator Network - README & Documentation
+# Sensor Actuator Network
 
 ## Overview
 This repository demonstrates a neural network system (SensorAugmentor) that:
