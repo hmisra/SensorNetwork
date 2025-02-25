@@ -86,6 +86,7 @@ INFERENCE:
 - Python 3.8 or higher
 - PyTorch 1.9.0 or higher
 - NumPy 1.20.0 or higher
+- Matplotlib 3.4.0 or higher (for visualization examples)
 
 ### Installation
 
@@ -183,6 +184,11 @@ The modular design allows replacing components:
 - Swap linear layers for convolutional ones for spatial sensors
 - Replace ReLU with alternative activations (GELU, Swish) 
 - Add recurrent layers (LSTM, GRU) for temporal sensor processing
+
+## Examples
+
+Check out the `examples/` directory for practical demonstrations:
+- `custom_dataset_example.py`: Environmental sensor data example with visualization
 
 ## Future Development
 
