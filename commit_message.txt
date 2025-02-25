@@ -1,4 +1,3 @@
-[Cursor] Enhance repository with world-class documentation and examples
 
 - Completely revamped README with detailed applications and usage information
 - Added MIT license file
