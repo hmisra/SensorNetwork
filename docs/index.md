@@ -1,83 +1,166 @@
 # SensorAugmentor Documentation
 
-Welcome to the SensorAugmentor documentation. This framework is designed to enhance low-quality sensor data into high-quality signals and generate corresponding actuator control commands.
-
-## Table of Contents
-
-1. [Getting Started](getting_started.md)
-2. [API Reference](api_reference.md)
-3. [Examples](#examples)
-4. [Testing](#testing)
-5. [Contributing](#contributing)
+Welcome to the SensorAugmentor documentation. This comprehensive guide will help you understand and utilize the SensorAugmentor framework for enhancing low-quality sensor data and generating precise actuator control commands.
 
 ## Overview
 
-SensorAugmentor is a deep learning framework that bridges the gap between low-quality sensor data and high-precision control systems. By implementing a neural teacher-student architecture with residual connections, it:
+SensorAugmentor is a deep learning framework designed to transform low-quality sensor signals into high-quality representations and simultaneously predict appropriate actuator commands. The framework leverages neural networks with residual connections to learn the mapping between noisy, low-resolution sensor data and their high-fidelity counterparts.
 
-1. **Enhances Signal Quality** - Transforms low-quality (LQ) sensor readings into high-quality (HQ) reconstructions
-2. **Improves Latent Representations** - Creates refined embeddings optimized for downstream tasks
-3. **Enables Precise Actuator Control** - Directly maps enhanced sensor data to optimal control commands
+![SensorAugmentor Workflow](images/sensor_augmentor_workflow.png)
 
-This framework has applications in various domains including:
-- Industrial automation and robotics
-- Autonomous vehicles
-- Medical devices
-- IoT and smart devices
-- Environmental monitoring
+Key capabilities include:
 
-## Examples
+- **Signal Enhancement**: Clean and restore degraded sensor signals
+- **Feature Extraction**: Learn meaningful latent representations of sensor data
+- **Actuator Control**: Generate optimal control commands for actuators
+- **Multi-objective Optimization**: Balance multiple learning objectives
 
-The SensorAugmentor framework includes several example implementations:
+## Table of Contents
 
-### Environmental Sensor Example
+- **Getting Started**
+  - [Installation Guide](#installation)
+  - [Quickstart](#quickstart)
+  - [Basic Concepts](tutorials/basic_concepts.md)
 
-The [environmental sensor example](../examples/custom_dataset_example.py) demonstrates how to use the framework with environmental data (temperature, humidity, pressure, and light). It includes:
+- **Tutorials**
+  - [Signal Enhancement with SensorAugmentor](tutorials/signal_enhancement.md)
+  - [Actuator Command Prediction](tutorials/actuator_command_prediction.md)
+  - [Working with Custom Sensor Data](tutorials/custom_sensor_data.md)
+  - [Multi-sensor Fusion](tutorials/multi_sensor_fusion.md)
 
-- Custom dataset implementation for environmental sensors
-- Training workflow
-- Visualization of sensor signals before and after enhancement
+- **API Reference**
+  - [Core Components](api/index.md#core-components)
+  - [Training Functions](api/index.md#training-functions)
+  - [Advanced Components](api/index.md#advanced-components)
+  - [Utility Functions](api/index.md#utility-functions)
 
-### Time-Series Sensor Example
+- **Architecture**
+  - [Design Philosophy](architecture/index.md#design-philosophy)
+  - [System Architecture](architecture/index.md#system-architecture)
+  - [Core Components](architecture/index.md#core-components)
+  - [Data Flow](architecture/index.md#data-flow)
+  - [Model Architecture](architecture/index.md#model-architecture)
+  - [Extension Points](architecture/index.md#extension-points)
 
-The [time-series sensor example](../examples/time_series_example.py) shows how to work with sequential vibration data. It includes:
+- **Deployment**
+  - [Model Export](deployment/index.md#model-export)
+  - [Containerized Deployment](deployment/index.md#containerized-deployment)
+  - [Cloud Deployment](deployment/index.md#cloud-deployment)
+  - [Edge Deployment](deployment/index.md#edge-deployment)
+  - [API Development](deployment/index.md#api-development)
 
-- Processing multiple time-series signals from different sensors
-- Handling multi-dimensional sequential data
-- Time-series visualization and evaluation
+- **Troubleshooting**
+  - [Installation Issues](troubleshooting/index.md#installation-issues)
+  - [Training Issues](troubleshooting/index.md#training-issues)
+  - [Model Performance Issues](troubleshooting/index.md#model-performance-issues)
+  - [Deployment Challenges](troubleshooting/index.md#deployment-challenges)
 
-## Testing
+- **Contributing**
+  - [How to Contribute](../CONTRIBUTING.md)
+  - [Development Guidelines](../CONTRIBUTING.md#coding-standards)
+  - [Testing Guidelines](../CONTRIBUTING.md#testing)
 
-The SensorAugmentor framework includes a comprehensive test suite to ensure code quality and reliability:
+## Installation
 
-- **Unit Tests**: Test individual components (ResidualBlock, SensorAugmentor)
-- **Integration Tests**: Test the complete training and inference workflow
+SensorAugmentor requires Python 3.8 or later and PyTorch 1.9 or later.
 
-To run the tests, use the `run_tests.py` script:
+### Standard Installation
 
 ```bash
-# Run all tests
-python run_tests.py
-
-# Run only unit tests
-python run_tests.py unit
-
-# Run only integration tests
-python run_tests.py integration
+pip install sensor-augmentor
 ```
 
-## Contributing
+### Development Installation
 
-Contributions to the SensorAugmentor framework are welcome! Here are some ways you can contribute:
+```bash
+git clone https://github.com/yourusername/SensorAugmentor.git
+cd SensorAugmentor
+pip install -e .
+```
 
-- Implement new model architectures
-- Add support for different types of sensor data
-- Improve documentation and examples
-- Fix bugs and issues
-- Add new features
+### Platform-Specific Notes
 
-When contributing, please follow these guidelines:
+**Windows**:
+```bash
+# Ensure you have the correct PyTorch version for your CUDA setup
+pip install torch==1.13.1+cu117 -f https://download.pytorch.org/whl/torch_stable.html
+pip install sensor-augmentor
+```
 
-1. Follow the existing code style
-2. Add tests for new functionality
-3. Update documentation
-4. Submit a pull request with a clear description of your changes 
+**Linux/Ubuntu**:
+```bash
+# Install system dependencies
+sudo apt-get update
+sudo apt-get install -y python3-dev libopenblas-dev
+pip install sensor-augmentor
+```
+
+**macOS**:
+```bash
+# For Apple Silicon (M1/M2)
+pip install torch==1.13.0 -f https://download.pytorch.org/whl/torch_stable.html
+pip install sensor-augmentor
+```
+
+## Quickstart
+
+Here's a simple example to get you started with SensorAugmentor:
+
+```python
+import torch
+from torch.utils.data import DataLoader
+from sensor_actuator_network import SensorAugmentor, SyntheticSensorDataset
+
+# Create synthetic dataset (replace with your own data)
+dataset = SyntheticSensorDataset(num_samples=1000, sensor_dim=32, output_dim=4)
+train_loader = DataLoader(dataset, batch_size=64, shuffle=True)
+
+# Create model
+model = SensorAugmentor(sensor_dim=32, hidden_dim=64, output_dim=4, num_resblocks=2)
+
+# Train model
+optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
+for epoch in range(10):
+    for x_lq, x_hq, y_cmd in train_loader:
+        # Forward pass
+        reconstructed_hq, act_command, encoded_lq, encoded_hq = model(x_lq, x_hq)
+        
+        # Calculate loss
+        # ... (see tutorials for complete example)
+        
+        # Backward pass and optimize
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+# Use the trained model
+with torch.no_grad():
+    # Forward pass with just low-quality input
+    x_lq_sample = torch.randn(1, 32)  # Single sample, 32 dimensions
+    reconstructed_hq, actuator_command, _, _ = model(x_lq_sample)
+    
+    print("Enhanced signal shape:", reconstructed_hq.shape)
+    print("Actuator command:", actuator_command)
+```
+
+## Citing SensorAugmentor
+
+If you use SensorAugmentor in your research, please cite it using the following BibTeX entry:
+
+```bibtex
+@software{sensoraugmentor2023,
+  author = {Your Name},
+  title = {SensorAugmentor: A Framework for Enhancing Sensor Signals},
+  url = {https://github.com/yourusername/SensorAugmentor},
+  version = {0.1.0},
+  year = {2023},
+}
+```
+
+## License
+
+SensorAugmentor is released under the MIT License. See [LICENSE](../LICENSE) for details.
+
+## Support
+
+For questions, issues, or feature requests, please [open an issue](https://github.com/yourusername/SensorAugmentor/issues) on GitHub. 

@@ -1,6 +1,0 @@
-
-- Completely revamped README with detailed applications and usage information
-- Added MIT license file
-- Created comprehensive environmental sensor example
-- Added detailed technical architecture documentation
-- Added performance benchmarks and future development roadmap 
