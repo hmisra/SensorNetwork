@@ -1,11 +1,12 @@
-[Cursor] Comprehensive documentation enhancement
+[Cursor] Initial commit of SensorAugmentor Framework
 
-- Added complete API reference documentation
-- Created detailed architecture documentation
-- Added deployment guide with various deployment scenarios
-- Created troubleshooting guide with common issues and solutions
-- Added tutorial on signal enhancement with practical examples
-- Added basic concepts tutorial explaining framework fundamentals
-- Created workflow diagram for visual explanation
-- Enhanced README with better structure and examples
-- Added CONTRIBUTING.md with development guidelines 
+- Complete API reference documentation
+- Detailed architecture documentation
+- Deployment guide with various deployment scenarios
+- Troubleshooting guide with common issues and solutions
+- Tutorials on signal enhancement with practical examples
+- Basic concepts tutorial explaining framework fundamentals
+- Example code for custom datasets and time-series data
+- Comprehensive test suite for unit and integration testing
+- Workflow diagram for visual explanation
+- Structured README and contribution guidelines 
