@@ -2,7 +2,7 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/release/python-380/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-1.9%2B-red.svg)](https://pytorch.org/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/license/mit)
 [![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg)](docs/index.md)
 [![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)](tests)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](CHANGELOG.md)
@@ -246,7 +246,7 @@ INFERENCE:
 - **Problem**: Industrial robots rely on expensive, high-precision sensors for accurate movement
 - **Solution**: SensorAugmentor allows the use of affordable sensors while maintaining precision through neural enhancement
 - **Impact**: Reduced hardware costs, improved maintenance profiles, and increased deployment flexibility
-- **Case Study**: [Manufacturing Robot Precision Enhancement](docs/case_studies/manufacturing_robots.md)
+- **Example**: See the [Signal Enhancement Tutorial](docs/tutorials/signal_enhancement.md)
 </details>
 
 <details>
@@ -255,7 +255,7 @@ INFERENCE:
 - **Problem**: Sensor degradation in adverse weather conditions (rain, fog, snow)
 - **Solution**: Neural reconstruction of degraded sensor data to maintain perception quality
 - **Impact**: Enhanced safety through robust sensor interpretation regardless of environmental conditions
-- **Case Study**: [Autonomous Vehicle Sensor Reliability](docs/case_studies/autonomous_vehicles.md)
+- **Example**: See the [Basic Concepts Tutorial](docs/tutorials/basic_concepts.md)
 </details>
 
 <details>
@@ -264,7 +264,7 @@ INFERENCE:
 - **Problem**: Signal noise in patient monitoring equipment
 - **Solution**: Clean and enhance physiological signals for more accurate diagnosis
 - **Impact**: Improved diagnostic accuracy with existing hardware, extending the life of medical equipment
-- **Case Study**: [Medical Monitoring Signal Enhancement](docs/case_studies/medical_monitoring.md)
+- **Example**: See the [Time Series Example](examples/time_series_example.py)
 </details>
 
 <details>
@@ -273,7 +273,7 @@ INFERENCE:
 - **Problem**: Limited battery and processing constraints require low-power sensors
 - **Solution**: Upgrade low-power sensor readings to high-fidelity signals
 - **Impact**: Longer battery life without sacrificing data quality and insight generation
-- **Tutorial**: [IoT Sensor Enhancement Implementation](docs/tutorials/iot_sensors.md)
+- **Example**: See the [API Reference](docs/api/index.md)
 </details>
 
 <details>
@@ -309,7 +309,7 @@ Complete documentation is available in the [docs](docs/) directory:
 \* *Based on public industry-standard datasets with similar characteristics*  
 \** *Based on synthesized data using public medical signal models*
 
-For detailed benchmarking methodology and results, see [Performance Benchmarks](docs/benchmarks.md).
+For detailed benchmarking methodology, see the benchmark examples in the [examples](examples/) directory.
 
 ## ❓ Troubleshooting
 
@@ -390,7 +390,7 @@ python run_tests.py --all
   - Edge deployment optimizations
   - Multi-modal sensor fusion
 
-For detailed development plans, see [ROADMAP.md](ROADMAP.md).
+For more details about our development plans, see the Issues and Projects on our GitHub repository.
 
 ## 📄 License
 
