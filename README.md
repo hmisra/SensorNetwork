@@ -14,7 +14,28 @@ SensorAugmentor is a deep learning framework designed to bridge the gap between 
 
 This capability has profound implications across multiple industries where sensor reliability, cost, and control precision create engineering trade-offs.
 
-![SensorAugmentor Architecture](https://i.imgur.com/example.png) <!-- Replace with actual architecture diagram -->
+```
+flowchart LR
+    subgraph LQ_Path[LQ Path]
+        LQ[LQ_Sensor_Input] --> E1[Linear_and_ReLU]
+        E1 --> RB1a[ResidualBlock_x_N]
+        RB1a --> RB1b[post_encoding_resblock]
+        RB1b --> HQRecon[HQ_Reconstructor]
+        RB1b --> Actuator[Actuator_Head]
+    end
+
+    subgraph HQ_Path[Optional Teacher]
+        HQSensor[HQ_Sensor_Input] --> E2[Encoder_same_arch]
+        E2 --> RB2[post_encoding_resblock]
+    end
+
+    RB1b -. latentLQ .-> AlignLoss
+    RB2 -. latentHQ .-> AlignLoss
+
+    HQRecon --> ReconstructLoss
+    Actuator --> ActuatorLoss
+    HQSensor --> ReconstructLoss
+```
 
 ## Real-World Applications
 
