@@ -1,0 +1,11 @@
+[Cursor] Comprehensive documentation enhancement
+
+- Added complete API reference documentation
+- Created detailed architecture documentation
+- Added deployment guide with various deployment scenarios
+- Created troubleshooting guide with common issues and solutions
+- Added tutorial on signal enhancement with practical examples
+- Added basic concepts tutorial explaining framework fundamentals
+- Created workflow diagram for visual explanation
+- Enhanced README with better structure and examples
+- Added CONTRIBUTING.md with development guidelines 
