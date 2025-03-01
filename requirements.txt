@@ -4,4 +4,16 @@ matplotlib>=3.4.0
 
 # Test dependencies
 pytest>=7.0.0
-pytest-cov>=4.0.0 
+pytest-cov>=4.0.0
+pytest-xdist>=3.0.0  # For parallel test execution
+pytest-benchmark>=4.0.0  # For performance benchmarking
+
+# Optional dependencies for advanced usage
+tqdm>=4.60.0  # For progress bars
+pillow>=8.2.0  # For image handling in visualizations
+tensorboard>=2.5.0  # For training visualization
+
+# Development dependencies
+black>=21.5b2  # Code formatting
+isort>=5.9.1  # Import sorting
+flake8>=3.9.2  # Linting 
